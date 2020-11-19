@@ -26,6 +26,9 @@ Copy the lines as follows
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 ```
-paste inside <head></head>, and remove the original viewport line</br>
-
--
+paste inside `<head></head>`, and remove the original `viewport` line</br>
+### Edit app.component
+find app.component.html in ```myproject->src->app->app.component.html```</br>
+Remove all the content and add some div class with text inside.</br>
+type```ng serve --open```in CLI to start server.</br>
+If it shows what you have typed, then the first step has been completed.
