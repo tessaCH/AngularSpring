@@ -1,6 +1,3 @@
-# Angular-Spring Boot Study Notes
-Udemy course. Github of the tutor : darbyluv2code/fullstack-angular-and-springboot
-
 ## Front End
 ### Create Angular Component
 ```ng generate component components/product-list```
@@ -39,7 +36,7 @@ Find product-list.component.ts in ```myproject->src->app->components\product-lis
 Paste the components name as tag name as ```<app-product-list></app-product-list> !``` at the bottom of the page text.</br>
 Run the server with ```ng serve --open```. It would show ```product-list works!``` on the web page.
 
-### Update product.service.ts
+### Update product.service.ts in 'services'
 Find product.service.ts in ```myproject->src->app->services->product.service.ts```</br>
 Update `class ProductService` with:</br>
 1. Add baseUrl(Spring Data REST route)</br>
@@ -50,9 +47,7 @@ Update `class ProductService` with:</br>
   Add `import { map } from 'rxjs/operators';`</br>
 ```
   private baseUrl = 'http://localhost:8080/api/products';
-
   constructor(private httpClient: HttpClient) { }
-
   getProductList(): Observable<Product[]>{
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
