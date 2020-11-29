@@ -3,34 +3,62 @@
 Pre-install: IntelliJ, Java, Tomcat, MySQL(8.0.4)</br>
 For the MySQL Reference Manual, visit: [MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)</br>
 
-### Create MySQL User
+### MySQL Database Setup
+#### Create MySQL User
 ```
 CREATE USER 'angularspringapp'@'localhost' IDENTIFIED BY 'angularspringapp';
 GRANT ALL PRIVILEGES ON * . * TO 'angularspringapp'@'localhost';
 ALTER USER 'angularspringapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'angularspringapp';
 ```
-
-## Front End
-### Installation
-Pre-install: Vidual Studio Code, Node.js</br>
-npm-install:  TypeScript(```npm install -g typescript```), Angular(```npm install -g @angular/cli```)</br>
-
-For the installation guide, visit: [install-ms-windows.md](https://github.com/tessaCH/fullstack-angular-and-springboot/blob/master/install-angular-tools/ms-windows/install-ms-windows.md)</br>
-
-Windows 10 trouble-shooting with VS Code
-> Run Visual Studio Code as Administrator</br>
-> In the Terminal Window of VS Code, run `Set-ExecutionPolicy RemoteSigned` on PowerShell.
-
-### Create Angular Project
-```ng new myproject```
+#### Create MySQL Database
 ```
-? Would you like to add Angular routing? (y/N)
-? Which stylesheet format would you like to use? (Use arrow keys)
-> CSS
-  SCSS   [ http://sass-lang.com   ]
-  SASS   [ http://sass-lang.com   ]
-  LESS   [ http://lesscss.org     ]
-  Stylus [ http://stylus-lang.com ]
+DROP SCHEMA IF EXISTS `full-stack-ecommerce`;
+
+CREATE SCHEMA `full-stack-ecommerce`;
+USE `full-stack-ecommerce` ;
+
+-- -----------------------------------------------------
+-- Table `full-stack-ecommerce`.`product_category`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `full-stack-ecommerce`.`product_category` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `category_name` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`))
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
+
+-- -----------------------------------------------------
+-- Table `full-stack-ecommerce`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `full-stack-ecommerce`.`product` (
+  `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+  `sku` VARCHAR(255) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `description` VARCHAR(255) DEFAULT NULL,
+  `unit_price` DECIMAL(13,2) DEFAULT NULL,
+  `image_url` VARCHAR(255) DEFAULT NULL,
+  `active` BIT DEFAULT 1,
+  `units_in_stock` INT(11) DEFAULT NULL,
+   `date_created` DATETIME(6) DEFAULT NULL,
+  `last_updated` DATETIME(6) DEFAULT NULL,
+  `category_id` BIGINT(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_category` (`category_id`),
+  CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)
+) 
+ENGINE=InnoDB
+AUTO_INCREMENT = 1;
 ```
-Use VS Code to start coding
-```File->Open Folder->myproject->Choose Folder```
+
+### Spring Initializr
+From Spring Initializr Website</br>
+> Generate starter file, visit: [Spring Initializr Website](https://start.spring.io/)</br>
+From IntelliJ</br>
+> `New Project -> Spring Initializr -> Project SDK: "15"->Default: https://start.spring.io ->`
+#### Related Options
+```
+Tyep: Maven
+Language: Java
+Packaging: Jar
+Java Version: 11
+```
