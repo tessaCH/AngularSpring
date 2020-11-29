@@ -1,7 +1,8 @@
 ## Back End
 ### Installation
-Pre-install: IntelliJ, Java, Tomcat, MySQL(8.0.4)</br>
+Pre-install: IntelliJ, Java, Tomcat, MySQL(8.0.4), Postman</br>
 For the MySQL Reference Manual, visit: [MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)</br>
+For Postman, visit: [getPostman](https://www.postman.com/downloads/)</br>
 
 ### MySQL Database Setup
 #### Create MySQL User
