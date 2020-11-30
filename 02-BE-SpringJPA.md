@@ -85,6 +85,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long> {
 }
 ```
+#### Connect to Angular Frontend
+> Add `CrossOrigin` and Angular port on top of `ProductRepository` and `ProductCategoryRepository` annotations
+```
+@CrossOrigin("http://localhost:4200")
+```
 ### Create Spring Config
 Create new package name: `config`</br>
 Create new class: `DataRestConfig`</br>
