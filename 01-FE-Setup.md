@@ -37,7 +37,7 @@ Copy the lines as follows
 paste inside `<head></head>`, and remove the original `viewport` line</br>
 
 ### Edit app.component
-find app.component.html in ```myproject->src->app->app.component.html```</br>
+Find app.component.html in ```myproject->src->app->app.component.html```</br>
 Remove all the content and add some div class with text inside.</br>
-type```ng serve --open```in CLI to start server.</br>
+Type```ng serve --open```in CLI to start server.</br>
 If it shows what you have typed, then the first step has been completed.
