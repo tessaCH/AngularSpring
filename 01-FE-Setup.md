@@ -24,8 +24,8 @@ Use VS Code to start coding
 ```File->Open Folder->myproject->Choose Folder```
 
 ### Use Bootstrap
-find index.html in ```myproject->src->index.html```</br>
-visit: [getbootstrap](https://getbootstrap.com/)</br>
+Find index.html in ```myproject->src->index.html```</br>
+Visit: [getbootstrap](https://getbootstrap.com/)</br>
 Get started->[Starter template](https://getbootstrap.com/docs/4.5/getting-started/introduction/#starter-template)</br>
 Copy the lines as follows
 ```
@@ -41,3 +41,29 @@ Find app.component.html in ```myproject->src->app->app.component.html```</br>
 Remove all the content and add some div class with text inside.</br>
 Type```ng serve --open```in CLI to start server.</br>
 If it shows what you have typed, then the first step has been completed.
+
+### Install Bootstrap with npm
+Type `npm install bootstrap` in CLI</br>
+If it shows vulnerability issue as what I've got :</br>
+> found 1 high severity vulnerability</br>
+Follow the construction like typing `npm audit fix`
+
+### Install Font Awesome with npm
+Type `npm install @fortawesome/fontawesome-free` in CLI</br>
+If it shows vulnerability issue as what I've got :</br>
+> found 1 high severity vulnerability</br>
+Follow the construction like typing `npm audit fix`
+
+### Check Dependencies in package.json
+Find package.json in ```myproject->package.json```</br>
+
+### Update angular.json
+Find angular.json in ```myproject->angular.json```</br>
+Add css of Bootstrap and FontAwesome in "styles"
+```
+  "styles": [
+    "src/styles.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+  ],
+```
