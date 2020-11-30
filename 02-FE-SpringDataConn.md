@@ -106,7 +106,7 @@ Update `class ProductListComponent implements OnInit` with:</br>
   }
 ```
 
-### Update product-list.component.html & Test run
+### Update product-list.component.html
 Find product-list.component.html in ```myproject->src->app->components\product-list->product-list.component.html```</br>
 Replace the contnet as follows:</br>
 ```
@@ -114,3 +114,15 @@ Replace the contnet as follows:</br>
     {{tempProduct.name}}: {{ tempProduct.unitPrice | currency: 'USD'}}
 </p>
 ```
+
+### Update app.component.html & Test run
+Find app.component.html in ```myproject->src->app->app.component.html```</br>
+Add `<app-product-list></app-product-list>` to the content with some style</br>
+```
+<div class="container">
+  <h1 class="mt-3 mb-3">Products</h1>
+  <app-product-list></app-product-list>
+</div>
+```
+type```ng serve```in CLI to run on server.</br>
+(@CrossOrigin with Angular server site should be added in the Spring repository classes)
